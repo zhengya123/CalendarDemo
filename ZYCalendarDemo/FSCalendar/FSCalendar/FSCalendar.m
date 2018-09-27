@@ -1367,6 +1367,13 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 {
     if (!self.floatingMode) {
         
+        if (!_calendarWeekdayView) {
+            FSCalendarWeekdayView *calendarWeekdayView = [[FSCalendarWeekdayView alloc] initWithFrame:CGRectZero];
+            calendarWeekdayView.calendar = self;
+            [_contentView addSubview:calendarWeekdayView];
+            _calendarWeekdayView = calendarWeekdayView;
+        }
+        
         if (!_calendarHeaderView) {
             
             FSCalendarHeaderView *headerView = [[FSCalendarHeaderView alloc] initWithFrame:CGRectZero];
@@ -1375,13 +1382,6 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
             [_contentView addSubview:headerView];
             self.calendarHeaderView = headerView;
             
-        }
-        
-        if (!_calendarWeekdayView) {
-            FSCalendarWeekdayView *calendarWeekdayView = [[FSCalendarWeekdayView alloc] initWithFrame:CGRectZero];
-            calendarWeekdayView.calendar = self;
-            [_contentView addSubview:calendarWeekdayView];
-            _calendarWeekdayView = calendarWeekdayView;
         }
         
         if (_scrollEnabled) {

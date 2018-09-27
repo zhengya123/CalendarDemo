@@ -35,10 +35,10 @@
     NSLog(@"开始 == %@ -- 结束 == %@",benTime,endTime);
     NSString * benTStr = [NSString stringWithFormat:@"%@",benTime];
     NSString * endTStr = [NSString stringWithFormat:@"%@",endTime];
-    if (benTStr.length == 0) {
+    if (benTStr == nil) {
         benTStr = @"";
     }
-    if (endTStr.length == 0) {
+    if (endTStr == nil) {
         endTStr = @"";
     }
     [self.nextC setTitle:[NSString stringWithFormat:@"%@至%@",benTStr,endTStr] forState:UIControlStateNormal];
